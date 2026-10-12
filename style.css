@@ -1,0 +1,276 @@
+/* ===================================================
+1. الإعدادات العامة والمتغيرات اللونية الجديدة
+=================================================== */
+:root {
+--font-en: 'Poppins', sans-serif;
+--font-ar: 'Tajawal', sans-serif;
+
+/* لوحة الألوان الجديدة */
+--bg-page: #f1f5f9;
+--dark-nav-bg: #0b1329; /* كحلي ليلي عميق بدلاً من الأسود الصريح */
+--cyan-accent: #00e5ff; /* أزرق سماوي نيون */
+--pink-accent: #ff2a74; /* وردي نيون تفاعلي */
+--purple-btn: linear-gradient(135deg, #6366f1, #8b5cf6); /* تدرج بنفسجي بديل للأحمر */
+--card-box-bg: #0f172a; /* خلفية الحاوية الكبيرة للبطاقات */
+--card-item-bg: #1e293b; /* خلفية البطاقة الفردية */
+--card-hover-border: #38bdf8;
+}
+
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background-color: var(--bg-page);
+font-family: var(--font-en);
+display: flex;
+flex-direction: column;
+gap: 36px;
+padding: 40px 6%;
+}
+
+/* ===================================================
+2. تصميم الشريط الداكن (Dark Navbar)
+=================================================== */
+.navbar-dark {
+background-color: var(--dark-nav-bg);
+border-radius: 14px;
+padding: 16px 32px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+box-shadow: 0 10px 25px rgba(11, 19, 41, 0.25);
+}
+
+.nav-left {
+display: flex;
+align-items: center;
+gap: 36px;
+}
+
+.brand-dark {
+color: #ffffff;
+font-size: 1.25rem;
+font-weight: 800;
+letter-spacing: 0.5px;
+}
+
+.nav-links-dark {
+display: flex;
+list-style: none;
+gap: 24px;
+}
+
+.nav-links-dark a {
+color: #94a3b8;
+text-decoration: none;
+font-size: 0.9rem;
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+.nav-links-dark a:hover,
+.nav-links-dark a.active {
+color: var(--cyan-accent);
+transform: translateY(-2px);
+}
+
+.nav-right-dark {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.link-signin {
+color: #cbd5e1;
+text-decoration: none;
+font-size: 0.9rem;
+font-weight: 500;
+transition: color 0.3s ease;
+}
+
+.link-signin:hover {
+color: #ffffff;
+}
+
+.btn-signup {
+background: var(--purple-btn);
+color: #ffffff;
+padding: 10px 24px;
+border-radius: 8px;
+text-decoration: none;
+font-size: 0.9rem;
+font-weight: 600;
+box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-signup:hover {
+transform: translateY(-2px) scale(1.03);
+box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+}
+
+/* ===================================================
+3. تصميم الشريط الفاتح (Light Navbar)
+=================================================== */
+.navbar-light {
+background: #ffffff;
+border-radius: 12px;
+padding: 18px 40px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border: 1px solid #e2e8f0;
+box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.brand-light {
+font-size: 1.35rem;
+font-weight: 800;
+color: #1e293b;
+}
+
+.brand-light .highlight {
+color: #6366f1; /* تم تغيير اللون الأحمر إلى بنفسجي حديث */
+}
+
+.nav-links-light {
+display: flex;
+list-style: none;
+gap: 28px;
+}
+
+.nav-links-light a {
+color: #64748b;
+text-decoration: none;
+font-size: 0.92rem;
+font-weight: 500;
+transition: color 0.3s ease;
+}
+
+.nav-links-light a:hover {
+color: #0f172a;
+}
+
+/* مؤشر التحديد السفلي التفاعلي */
+.active-item {
+position: relative;
+}
+
+.active-item a {
+color: #0f172a;
+font-weight: 600;
+}
+
+.active-item::after {
+content: '';
+position: absolute;
+bottom: -10px;
+left: 0;
+width: 100%;
+height: 4px;
+background: #6366f1;
+border-radius: 4px;
+}
+
+/* ===================================================
+4. قسم البطاقات الداكنة (Dark Cards Section)
+=================================================== */
+.cards-section {
+text-align: center;
+}
+
+.section-heading {
+font-size: 1.4rem;
+font-weight: 800;
+color: #1e293b;
+margin-bottom: 20px;
+letter-spacing: 0.5px;
+}
+
+.dark-cards-container {
+background-color: var(--card-box-bg);
+border-radius: 18px;
+padding: 40px 30px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 22px;
+box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+}
+
+/* البطاقة الفردية */
+.step-card {
+background-color: var(--card-item-bg);
+border: 1px solid rgba(255, 255, 255, 0.06);
+border-radius: 14px;
+padding: 30px 20px;
+text-align: left;
+position: relative;
+transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+border-color 0.35s ease,
+box-shadow 0.35s ease;
+cursor: pointer;
+}
+
+/* حركة التحويم للبطاقة (Translate + Scale + Glow) */
+.step-card:hover {
+transform: translateY(-8px) scale(1.02);
+border-color: var(--card-hover-border);
+box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4),
+0 0 20px rgba(56, 189, 248, 0.15);
+}
+
+/* أرقام الخطوات الخضراء النيون */
+.step-num {
+display: block;
+font-size: 2.2rem;
+font-weight: 800;
+color: #10b981; /* أخضر زمردي نيون */
+margin-bottom: 12px;
+transition: transform 0.3s ease;
+}
+
+.step-card:hover .step-num {
+transform: scale(1.1) translateX(4px);
+color: #34d399;
+}
+
+.step-title {
+color: #ffffff;
+font-size: 1.15rem;
+font-weight: 700;
+margin-bottom: 10px;
+}
+
+.step-desc {
+font-family: var(--font-ar);
+color: #94a3b8;
+font-size: 0.88rem;
+line-height: 1.6;
+text-align: right;
+direction: rtl;
+}
+
+/* تجاوب التصميم مع الشاشات الصغيرة */
+@media (max-width: 992px) {
+.dark-cards-container {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 640px) {
+.dark-cards-container {
+grid-template-columns: 1fr;
+}
+.navbar-dark, .navbar-light {
+flex-direction: column;
+gap: 16px;
+}
+.nav-left, .nav-links-dark, .nav-links-light {
+flex-direction: column;
+gap: 12px;
+}
+}
+
